@@ -17,3 +17,6 @@ commitpilot-out/
 .idea/
 .vscode/
 *.swp
+
+# Netlify local
+.netlify/

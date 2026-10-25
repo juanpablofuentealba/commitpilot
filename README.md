@@ -1,5 +1,10 @@
 # ✈️ CommitPilot
 
+[![CI](https://github.com/juanpablofuentealba/commitpilot/actions/workflows/ci.yml/badge.svg)](https://github.com/juanpablofuentealba/commitpilot/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+[![Node](https://img.shields.io/badge/node-%3E%3D18-brightgreen)](https://nodejs.org)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/juanpablofuentealba/commitpilot/pulls)
+
 **IA para tus commits, changelogs y Pull Requests — directamente desde la terminal.**
 
 CommitPilot lee tu `git diff` y usa modelos de IA (vía [OpenRouter](https://openrouter.ai)) para escribir
@@ -23,6 +28,12 @@ mensajes de commit claros, changelogs ordenados y descripciones de PR listas par
 ---
 
 ## 🚀 Instalación
+
+### Requisitos
+
+- **Node.js ≥ 18** (usa `fetch` nativo).
+- **git** en el PATH.
+- Una **API key de OpenRouter** (gratis en <https://openrouter.ai/keys>).
 
 ```bash
 # Opción 1: desde npm (cuando esté publicado)
@@ -143,6 +154,26 @@ console.log(messages);
 - Tu API key se lee del entorno y **nunca** se escribe en disco ni en el repositorio.
 
 ---
+
+## 🌐 Landing (Netlify)
+
+La carpeta `site/` contiene la landing pública del proyecto.
+
+```bash
+# Login (una vez)
+netlify login
+
+# Setup + deploy completo
+./setup-netlify.sh
+```
+
+O de forma manual:
+
+```bash
+netlify sites:create --name commitpilot
+netlify link
+netlify deploy --prod --dir=site
+```
 
 ## 🧪 Desarrollo
 
