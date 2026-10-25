@@ -1,0 +1,42 @@
+{
+  "name": "commitpilot",
+  "version": "0.1.0",
+  "description": "IA para generar mensajes de commit, changelogs y descripciones de PR desde tu diff de git. Open-source (BYOK).",
+  "type": "module",
+  "bin": {
+    "commitpilot": "./bin/commitpilot.js"
+  },
+  "main": "./src/index.js",
+  "files": [
+    "bin",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "start": "node ./bin/commitpilot.js",
+    "lint": "node --check src/*.js && node --check bin/*.js"
+  },
+  "keywords": [
+    "git",
+    "commit",
+    "ai",
+    "openrouter",
+    "deepseek",
+    "cli",
+    "changelog",
+    "conventional-commits",
+    "developer-tools"
+  ],
+  "author": "juanpablofuentealba",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juanpablofuentealba/commitpilot.git"
+  },
+  "dependencies": {}
+}

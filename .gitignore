@@ -1,0 +1,19 @@
+# Dependencias
+node_modules/
+npm-debug.log*
+
+# Entorno (NUNCA subir claves)
+.env
+.env.*
+*.local
+
+# Salidas del propio proyecto
+CHANGELOG.generated.md
+pr.md
+commitpilot-out/
+
+# Editores / SO
+.DS_Store
+.idea/
+.vscode/
+*.swp
