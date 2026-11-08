@@ -129,6 +129,19 @@ A partir de ahí, al hacer `git commit` sin mensaje, CommitPilot propondrá uno.
 | `OPENROUTER_API_KEY` | **Obligatoria.** Tu clave de OpenRouter. |
 | `COMMITPILOT_API_KEY` | Alternativa a la anterior. |
 | `COMMITPILOT_MODEL` | Modelo por defecto. |
+| `COMMITPILOT_BASE_URL` | URL base de cualquier API compatible con OpenAI (por defecto `https://openrouter.ai/api/v1`). |
+
+#### Otros proveedores compatibles con OpenAI
+
+CommitPilot usa el formato `chat/completions` de OpenAI, así que puedes apuntarlo a otro proveedor cambiando solo la URL base y la clave. Por ejemplo, con [Demon Route](https://demonroute.com/integrations):
+
+```bash
+export COMMITPILOT_BASE_URL="https://api.demonroute.com/v1"
+export COMMITPILOT_API_KEY="sk-dr-..."
+commitpilot commit --model glm-5.3-flash
+```
+
+Los IDs de modelo de Demon Route están en <https://demonroute.com/models>.
 
 ---
 
