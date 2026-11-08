@@ -41,6 +41,7 @@ OPCIONES COMUNES:
 ENTORNO:
   OPENROUTER_API_KEY   Tu clave de OpenRouter (obligatoria)
   COMMITPILOT_MODEL    Modelo por defecto (opcional)
+  COMMITPILOT_BASE_URL URL base compatible con OpenAI (opcional, por defecto OpenRouter)
 
 EJEMPLOS:
   git add .

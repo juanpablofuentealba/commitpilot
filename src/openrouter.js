@@ -9,6 +9,18 @@ const DEFAULT_BASE_URL = "https://openrouter.ai/api/v1";
 export const DEFAULT_MODEL = "deepseek/deepseek-chat-v3-0324";
 
 /**
+ * Resuelve la URL base de la API (cualquier endpoint compatible con OpenAI).
+ * Orden: valor explícito > COMMITPILOT_BASE_URL > OpenRouter.
+ * @param {string} [explicit]
+ * @returns {string}
+ */
+export function resolveBaseUrl(explicit) {
+  const url =
+    explicit || process.env.COMMITPILOT_BASE_URL || DEFAULT_BASE_URL;
+  return url.replace(/\/+$/, "");
+}
+
+/**
  * Resuelve la API key desde el entorno.
  * @param {string} [explicit] opcional: clave pasada explícitamente
  * @returns {string}
@@ -46,10 +58,10 @@ export async function chat({
   messages,
   temperature = 0.2,
   maxTokens = 400,
-  baseUrl = DEFAULT_BASE_URL,
+  baseUrl,
   signal,
 }) {
-  const res = await fetch(`${baseUrl}/chat/completions`, {
+  const res = await fetch(`${resolveBaseUrl(baseUrl)}/chat/completions`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${apiKey}`,

@@ -18,7 +18,7 @@ import {
   parseCommitMessages,
 } from "./prompts.js";
 
-export { DEFAULT_MODEL, resolveApiKey } from "./openrouter.js";
+export { DEFAULT_MODEL, resolveApiKey, resolveBaseUrl } from "./openrouter.js";
 export { parseCommitMessages } from "./prompts.js";
 export * as git from "./git.js";
 
@@ -37,6 +37,7 @@ export async function generateCommitMessages(diff, opts = {}) {
     messages,
     temperature: opts.temperature ?? 0.2,
     maxTokens: opts.maxTokens ?? 300,
+    baseUrl: opts.baseUrl,
     signal: opts.signal,
   });
   return {
@@ -61,6 +62,7 @@ export async function generateChangelog(commits, opts = {}) {
     messages,
     temperature: opts.temperature ?? 0.3,
     maxTokens: opts.maxTokens ?? 1200,
+    baseUrl: opts.baseUrl,
     signal: opts.signal,
   });
   return { content: res.content, model: res.model, usage: res.usage };
@@ -81,6 +83,7 @@ export async function generatePullRequest(diff, opts = {}) {
     messages,
     temperature: opts.temperature ?? 0.3,
     maxTokens: opts.maxTokens ?? 1000,
+    baseUrl: opts.baseUrl,
     signal: opts.signal,
   });
   return { content: res.content, model: res.model, usage: res.usage };
